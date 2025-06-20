@@ -351,16 +351,20 @@
             { code: "ropetieable", minGeneration: 2 }
         ],
         spawnconditionsByType: { "*-cock": {
+            climate: {
+                minTemp: 6,
+                maxTemp: 28,
+                minRain: 0.32,
+                maxForest: 0.2,
+                maxShrubs: 0.5,
+                minForestOrShrubs: 0.05
+            },
             worldgen: {
-                TriesPerChunk: { avg: 0.1, var: 0 },
+                TriesPerChunk: { avg: 0.05, var: 0 },
                 tryOnlySurface: true,
                 minLightLevel: 12,
                 groupSize: { dist: "verynarrowgaussian", avg: 4, var: 5 },
                 insideBlockCodes: ["game:air", "game:tallgrass-*"],
-                minTemp: 8,
-                maxTemp: 28,
-                minRain: 0.32,
-                minShrubs: 0.3,
                 companions: ["pheasant-hen", "pheasant-chick"]
             },
             runtime: {
@@ -371,10 +375,6 @@
                 minLightLevel: 12,
                 groupSize: { dist: "verynarrowgaussian", avg: 4, var: 5 },
                 insideBlockCodes: ["game:air", "game:tallgrass-*"],
-                minTemp: 8,
-                maxTemp: 28,
-                minRain: 0.32,
-                minForestOrShrubs: 0.4,
                 companions: ["pheasant-hen", "pheasant-chick"]
             }
         }}
