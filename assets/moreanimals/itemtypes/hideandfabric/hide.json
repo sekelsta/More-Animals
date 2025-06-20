@@ -1,0 +1,63 @@
+{
+    "code": "hide",
+    "enabled": false,
+    "attributes": {
+        "handbook": {
+            "groupBy": ["hide-*-{animal}-*"]
+        }
+    },
+    "variantGroups": [
+        { "code": "size", "states": ["small"] },
+        { "code": "animal", "states": ["skunk"] },
+        { "code": "coat", "states": ["striped", "spotted", "hooded", "albino"] },
+        { "code": "type", "states": ["raw", "oiled", "pelt"] }
+    ],
+    "creativeinventory": { "general": ["*"], "items": ["*"], "hideandfabric": ["*"] },
+    "maxstacksize": 32,
+    "shape": { "base": "item/hide-skunk" },
+    "textureByType": {
+        "*": { "base": "entity/skunk/skunk-{coat}-adult" }
+    },
+    "transitionablePropsByType": {
+        "hide-*-oiled":	[
+            {
+                "type": "Cure",
+                "freshHours": { "avg": 0 },
+                "transitionHours": { "avg": 48 },
+                "transitionedStack": { "type": "item", "code": "hide-{size}-{animal}-{coat}-oiled" },
+                "transitionRatio": 1
+            }
+        ],
+        "hide-*-raw": [
+            {
+                "type": "Perish",
+                "freshHours": { "avg": 120 },
+                "transitionHours": { "avg": 24 },
+                "transitionedStack": { "type": "item", "code": "rot" },
+                "transitionRatioByType": {
+                    "*-small-*": 1,
+                    "*-medium-*": 2,
+                    "*-large-*": 4,
+                    "*-huge-*": 8
+                }
+            }
+        ]
+    },
+    "guiTransform": {
+        "translation": { "x": 1, "y": 3, "z": 0 },
+        "rotation": { "x": -180, "y": -90, "z": 60 },
+        "origin": { "x": 0.5, "y": 0.0625, "z": 0.5 },
+        "scale": 1.6
+    },
+    "groundTransform": { "scale": 1.5 },
+    "fpHandTransform": {
+        "rotation": { "x": 45, "y": -90, "z": 0 },
+        "scale": 1.5
+    },
+    "tpHandTransform": {
+        "translation": { "x": -0.7, "y": -0.1, "z": -0.4 },
+        "rotation": { "x": -90, "y": 0, "z": 0 },
+        "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+        "scale": 0.9
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "code": "hidecap",
+    "class": "ItemWearable",
+    "enabled": false,
+    "variantGroups": [
+        { "code": "animal", "states": ["skunk"] },
+        { "code": "coat", "states": [ "striped", "spotted", "hooded", "albino" ] }
+    ],
+    "attributes": {
+        "handbook": {
+            "groupBy": ["hidecap-{animal}-*"]
+        },
+        "clothescategory": "head",
+        "disableElements": ["Ponytail1", "hideme"],
+        "warmth": 2.0,
+        "wearableAttachment": true
+    },
+    "shape": { "base": "entity/clothing/skunk-cap" },
+    "storageFlags": 128,
+    "textures": {
+        "seraph": { "base": "game:block/transparent" },
+        "skinByType": {
+            "*": { "base": "entity/skunk/skunk-{coat}-adult" }
+        }
+    },
+    "creativeinventory": { "general": ["*"], "items": ["*"], "clothing": ["*"], "hideandfabric": ["*"] },
+    "renderAlphaTest": 0.25,
+    "fpHandTransform": {
+        "translation": { "x": 0.6, "y": -1.6, "z": -0.5 },
+        "rotation": { "x": 180, "y": -108, "z": -180 },
+        "origin": { "x": 0.5, "y": 1.6, "z": 0.5 },
+        "scale": 2.15
+    },
+    "tpHandTransform": {
+        "translation": { "x": -1, "y": -3, "z": -1 },
+        "rotation": { "x": -13, "y": -80, "z": 29 },
+        "origin": { "x": 0.5, "y": 1.5, "z": 0.5 },
+        "scale": 0.55
+    },
+    "guiTransform": {
+        "rotate": false,
+        "translation": { "x": 3, "y": 6, "z": 0 },
+        "rotation": { "x": 176, "y": -68, "z": 10 },
+        "origin": { "x": 0.52, "y": 1.6, "z": 0.5 },
+        "scale": 2.5
+    },
+    "groundTransform": {
+        "translation": { "x": 0.05, "y": -0.3, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 },
+        "scale": 2
+    }
+}

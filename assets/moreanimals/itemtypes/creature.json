@@ -7,7 +7,7 @@
             "pheasant-chick", "pheasant-cockpoult", "pheasant-henpoult", "pheasant-cock", "pheasant-hen",
             "goldenpheasant-chick", "goldenpheasant-cockpoult", "goldenpheasant-henpoult", "goldenpheasant-cock", "goldenpheasant-hen",
             "capercaillie-chick", "capercaillie-cockpoult", "capercaillie-henpoult", "capercaillie-cock", "capercaillie-hen",
-            "wildturkey-chick", "wildturkey-cockpoult", "wildturkey-henpoult", "wildturkey-cock", "wildturkey-hen"
+            "wildturkey-chick", "wildturkey-cockpoult", "wildturkey-henpoult", "wildturkey-cock", "wildturkey-hen", "skunk-female-adult", "skunk-male-adult", "skunk-female-kit", "skunk-male-kit"
         ] }
     ],
     shapeByType: {
@@ -83,6 +83,20 @@
             rotation: { x: -7, y: -37, z: -180 },
             origin: { x: 0.5, y: 0.32, z: 0.5 },
             scale: 2.14
+        },
+        "creature-skunk-*-adult": {
+            rotate: true,
+			translation: { x: -0.3, y: -0.08, z: 0 },
+			rotation: { x: -180, y: 0, z: -156 },
+            origin: { x: 0.5, y: 0.32, z: 0.5 },
+			scale: 0.7
+        },
+        "creature-skunk-*-kit": {
+            rotate: true,
+			translation: { x: -0.3, y: -0.08, z: 0 },
+			rotation: { x: -180, y: 0, z: -156 },
+            origin: { x: 0.5, y: 0.32, z: 0.5 },
+			scale: 0.75
         },
         "*": {
             rotate: true,    

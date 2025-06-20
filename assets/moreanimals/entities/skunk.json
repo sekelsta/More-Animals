@@ -1,0 +1,304 @@
+{
+    code: "skunk",
+    class: "EntityAgent",
+    variantgroups: [
+        { code: "species", states: ["striped", "spotted", "hooded"] },
+        { code: "gender", states: ["male", "female"] },
+        { code: "age", states: ["adult", "kit"] },
+    ],
+    hitboxSizeByType: {
+        "*-kit": { x: 0.4, y: 0.4 },
+        "*": { x: 0.75, y: 0.5 }
+    },
+    deadHitboxSizeByType: {
+        "*-kit": { x: 0.4, y: 0.25 },
+        "*": { x: 0.75, y: 0.4 }
+    },
+    eyeHeightByType: {
+        "*-kit": 0.4,
+        "*": 0.7
+    },
+    drops: [],
+    attributes: {
+        basketCatchable: true,
+        trapChance: 0.5,
+        trapDestroyChance: 0.3,
+        creatureDiet: {
+            foodCategories: ["Fruit", "Vegetable", "Protein", "Grain", "Dairy"],
+            foodTags: ["lootableSweet", "sweetBerryBush", "meat"]
+        },
+        handbook: {
+            groupcode: "creaturegroup-skunk"
+        }
+    },
+	behaviorConfigs: {
+		controlledphysics: { stepHeight: 1.1251 },
+        despawn: { minPlayerDistance: 8, belowLightLevel: 8, minSeconds: 300 },
+        harvestable: {
+            drops: [ TODO
+                {
+                    type: "item", 
+                    code: "bushmeat-raw", 
+                    quantity: { avg: 2, var: 1 } 
+                },
+                {
+                    type: "item", 
+                    code: "skunk-hide-raw-small", 
+                    quantity: { avg: 1.25, var: 0 } 
+                },
+                {
+                    type: "item", 
+                    code: "fat", 
+                    quantity: { avg: 0.25, var: 0 } 
+                }
+                ]
+        },
+        grow: { enabledByType: "*-kit": true, "*": false }, TODO
+        mouthinventory: { acceptStacks: [
+            { type: "item", code: "honeycomb" },
+            { type: "item", code: "fruit-blueberry" },
+            { type: "item", code: "fruit-cranberry" },
+            { type: "item", code: "fruit-redcurrant" },
+            { type: "item", code: "fruit-whitecurrant" },
+            { type: "item", code: "fruit-blackcurrant" }
+        ]},
+        multiply: { enabledByType: "*-female-adult": true, "*": false }, TODO
+    },
+    client: {
+        renderer: "Shape",
+        shapeByType: {
+            "*": { base: "entity/land/skunk-{age}" },
+        },
+        textureByType: {
+            "*": { base: "entity/skunk/skunk-{species}-{age}" },
+        },
+        behaviors: [
+            { code: "repulseagents" }, 
+            { code: "controlledphysics" }, 
+            { code: "floatupwhenstuck", onlyWhenDead: true },
+            { code: "interpolateposition" },
+            { code: "harvestable" },
+            { code: "multiply" },
+            { code: "grow" },
+            { code: "mouthinventory" },
+            { code: "despawn" },
+        ],
+        animations: [
+            {
+                code: "hurt",
+                animation: "hurt", 
+                animationSpeed: 2.2,
+                weight: 10,
+                blendMode: "AddAverage" 
+            },
+            {
+                code: "die",
+                animation: "death", 
+                animationSpeed: 1.25,
+                weight: 10,
+                blendMode: "Average",
+                triggeredBy: { onControls: ["dead"] }
+            },
+            { 
+                code: "idle", 
+                animation: "idle",
+                blendMode: "AddAverage",
+                easeOutSpeed: 4,
+                triggeredBy: { defaultAnim: true },
+            },
+            { 
+                code: "walk",
+                animation: "walk",
+                weight: 5
+            }
+        ]
+    },
+    server: {
+        behaviors: [
+            { code: "repulseagents" }, 
+            { code: "controlledphysics" },
+            { code: "despawn" },
+            { code: "health", currenthealth: 6, maxhealth: 6, },
+            { code: "deaddecay", hoursToDecay: 96, decayedBlock: "carcass-small" },
+            { code: "floatupwhenstuck", onlyWhenDead: true },
+            { code: "harvestable" },
+            { code: "multiply" },
+            { code: "grow" },
+            { code: "breathe" },
+            { 
+                code: "emotionstates",
+                states: [
+                    { code: "aggressiveondamage", duration: 5, chance: 0, slot: 0, priority: 2, accumType: "noaccum" },
+                    { code: "fleeondamage", duration: 10, chance: 1, slot: 0, priority: 1, accumType: "max" },
+                    { code: "saturated", duration: 1200, chance: 1, slot: 0, priority: 1, accumType: "sum" }
+                ],
+            },
+            { 
+                code: "taskai",
+                aitasks: [
+                    {
+                        code: "meleeattack",
+                        entityCodes: ["player"],
+                        priority: 3,
+                        damage: 3,
+                        slot: 1,
+                        mincooldown: 1500, 
+                        maxcooldown: 1500, 
+                        attackDurationMs: 800,
+                        damagePlayerAtMs: 500,
+                        animation: "Attack",
+                        animationSpeed: 2.5,
+                        whenInEmotionState: "aggressiveondamage"
+                    },
+                    {
+                        code: "seekentity",
+                        entityCodes: ["player"],
+                        priority: 2.5,
+                        movespeed: 0.022,
+                        seekingRange: 20,
+                        animation: "Run",
+                        animationSpeed: 1.5,
+                        sound: "creature/skunk/aggro",
+                        whenInEmotionState: "aggressiveondamage"
+                    },
+                    {
+                        code: "fleeentity",
+                        entityCodes: ["player", "bear-*"],
+                        priority: 2,
+                        movespeed: 0.035,
+                        animationSpeed: 3.5,
+                        seekingRange: 12,
+                        animation: "Run",
+                    },
+                    {
+                        code: "fleeentity",
+                        entityCodes: ["beemob"],
+                        priority: 2,
+                        movespeed: 0.03,
+                        animationSpeed: 3,
+                        seekingRange: 9,
+                        fleeDurationMs: 20000,
+                        fleeingDistance: 25,
+                        animation: "Run",
+                        retaliateAttacks: false,
+                        whenInEmotionState: "fleeondamage"
+                    },
+                    {
+                        code: "seekfoodandeat",
+                        movespeed: 0.010,
+                        priority: 1.6,
+                        animationSpeed: 1.75,
+                        eatTime: 2,
+                        eatLooseItems: true,
+                        animation: "Walk",
+                        eatAnimation: "gather",
+                        eatAnimationLooseItems: "eat",
+                        mincooldownHours: 6,
+                        maxcooldownHours: 12,
+                    },
+                    {
+                        code: "useinventory",
+                        animation: "eat",
+                        priority: 1.5,
+                        priorityForCancel: 1.7,
+                        eatItemCategories: ["Fruit"],
+                        eatItemCodes: ["honeycomb"],
+                        useTime: 3,
+                        mincooldownHours: 0,
+                        maxcooldownHours: 0.5,
+                    },
+                    {
+                        code: "getoutofwater",
+                        priority: 1.4,
+                        movespeed: 0.015,
+                        animation: "Walk",
+                        animationSpeed: 2.2
+                    },
+                    {
+                        code: "idle",
+                        priority: 1.2,
+                        priorityForCancel: 1.35,
+                        minduration: 2500,
+                        maxduration: 2500,
+                        mincooldown: 6000,
+                        maxcooldown: 20000,
+                        animation: "Sniff",
+                        animationSpeed: 1.25
+                    },
+                    {
+                        code: "wander", 
+                        priority: 1.0, 
+                        priorityForCancel: 1.35,
+                        animation: "Walk",
+                        preferredLightLevel: 20,
+                        movespeed: 0.008,
+                        animationSpeed: 2
+                    },
+                    {
+                        code: "idle",
+                        priority: 0.9,
+                        minduration: 5000,
+                        maxduration: 30000,
+                        mincooldown: 2000,
+                        maxcooldown: 120000,
+                        priorityForCancel: 1.28,
+                        animation: "Sit",
+                        stopOnNearbyEntityCodes: ["player"],
+                        stopRange: 5
+                    },
+                    { 
+                        code: "lookaround", 
+                        priority: 0.5
+                    }
+                ]
+            },
+            { code: "collectitems" }, 
+            { code: "mouthinventory" }
+        ],
+        spawnconditionsByType: "*-male-adult": {
+            worldgen: {
+                TriesPerChunk: { avg: 0.06, var: 0 },
+                tryOnlySurface: true,
+                groupSize: { dist: "verynarrowgaussian", avg: 3, var: 3 },
+                insideBlockCodes: ["game:air", "game:tallgrass-*", "game:snowlayer-1"],
+                minTemp: -15, TODO
+                maxTemp: 15,
+                minRain: 0.25,
+                minForestOrShrubs: 0.25,
+                maxForest: 0.75,
+                maxShrubs: 0.75,
+                companions: ["skunk-female-adult", "skunk-female-kit", "skunk-male-kit"]
+            },
+            runtime: {
+                group: "neutral",
+                tryOnlySurface: true,
+                chance: 0.0009,
+                maxQuantity: 4,
+                "__comment": "Make them spawn away from artifical light so they don't spawn inside farmland",
+                maxLightLevel: 7,
+                groupSize: { avg: 1, var: 0 },
+                insideBlockCodes: ["game:air", "game:tallgrass-*", "game:snowlayer-1"],
+                minTemp: -15,
+                maxTemp: 15,
+                minRain: 0.25,
+                minForestOrShrubs: 0.25,
+                maxForest: 0.75,
+                maxShrubs: 0.75,
+                companions: ["skunk-female-adult", "skunk-female-kit", "skunk-male-kit"]
+            }
+        }}
+    },
+    soundsByType: {
+        "*-kit": {
+            hurt: "game:creature/raccoon/pup-hurt",
+            death: "game:creature/raccoon/pup-death",
+            idle: "game:creature/raccoon/pup-idle"
+        },
+        "*": {
+            hurt: "creature/skunk/hurt",
+            death: "creature/skunk/hurt",
+            idle: "creature/skunk/idle"
+        }
+    },
+    idleSoundChance: 0.01
+}

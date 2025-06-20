@@ -1,0 +1,26 @@
+[
+    {
+        file: "moreanimals:itemtypes/hideandfabric/hide.json",
+        op: "add",
+        path: "/enabled",
+        value: true,
+        side: "server",
+        dependsOn: [ { modid: "hideandfabric" } ]
+    },
+    {
+        file: "moreanimals:itemtypes/hideandfabric/hidecap.json",
+        op: "add",
+        path: "/enabled",
+        value: true,
+        side: "server",
+        dependsOn: [ { modid: "hideandfabric" } ]
+    },
+    {
+        file: "moreanimals:itemtypes/hideandfabric/hideboots.json",
+        op: "add",
+        path: "/enabled",
+        value: true,
+        side: "server",
+        dependsOn: [ { modid: "hideandfabric" } ]
+    },
+]
