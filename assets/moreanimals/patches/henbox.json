@@ -1,3 +1,0 @@
-[
-	{ file: "game:recipes/grid/henbox.json", op: "add", path: "/enabled", value: "false", side: "server" }
-]

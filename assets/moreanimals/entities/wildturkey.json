@@ -251,6 +251,7 @@
                         sitAnimation: "Sit",
                         requiresNearbyEntityCode: "moreanimals:wildturkey-cock",
                         requiresNearbyEntityRange: 18,
+                        nestTypes: [ "ground" ],
                         failBlockCode: "moreanimals:egg-wildturkey-1",
                         sound: "moreanimals:turkey/wildturkeyhenidle*",
                         enabledByType: { "*-hen": true, "*": false },
