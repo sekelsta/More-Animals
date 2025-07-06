@@ -4,14 +4,14 @@
     maxstacksize: 64,
     variantgroups: [
         { code: "type", states: [
-            "pheasant-chick", "pheasant-cockpoult", "pheasant-henpoult", "pheasant-cock", "pheasant-hen",
-            "goldenpheasant-chick", "goldenpheasant-cockpoult", "goldenpheasant-henpoult", "goldenpheasant-cock", "goldenpheasant-hen",
-            "capercaillie-chick", "capercaillie-cockpoult", "capercaillie-henpoult", "capercaillie-cock", "capercaillie-hen",
-            "wildturkey-chick", "wildturkey-cockpoult", "wildturkey-henpoult", "wildturkey-cock", "wildturkey-hen"
+            "pheasant-chick-male", "pheasant-chick-female", "pheasant-cockpoult", "pheasant-henpoult", "pheasant-cock", "pheasant-hen",
+            "goldenpheasant-chick-male", "goldenpheasant-chick-female", "goldenpheasant-cockpoult", "goldenpheasant-henpoult", "goldenpheasant-cock", "goldenpheasant-hen",
+            "capercaillie-chick-male", "capercaillie-chick-female", "capercaillie-cockpoult", "capercaillie-henpoult", "capercaillie-cock", "capercaillie-hen",
+            "wildturkey-chick-male", "wildturkey-chick-female", "wildturkey-cockpoult", "wildturkey-henpoult", "wildturkey-cock", "wildturkey-hen"
         ] }
     ],
     shapeByType: {
-        "*-chick": {
+        "*-chick*": {
             "base": "entity/land/pheasant-chick"
         },
         "*-pheasant-hen*": {
