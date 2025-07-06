@@ -1,0 +1,16 @@
+[
+	{
+        file: "game:entities/animal/mammal/hyena-adult.json",
+        op: "addeach",
+        path: "/server/behaviors/11/aitasks/1/entityCodes/-",
+        value: [ "pheasant-*", "goldenpheasant-*", "capercaillie-*", "wildturkey-*" ],
+        side: "server"
+    },
+	{
+        file: "game:entities/animal/mammal/hyena-adult.json",
+        op: "addeach",
+        path: "/server/behaviors/11/aitasks/3/entityCodes/-",
+        value: [ "pheasant-*", "goldenpheasant-*", "capercaillie-*", "wildturkey-*" ],
+        side: "server"
+    }
+]
