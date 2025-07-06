@@ -11,8 +11,9 @@ if [[ -n $null_textured_shapes ]]; then
     echo -e "${null_textured_shapes}${NC}"
 fi
 
-dotnet run --project ./Build/CakeBuild/CakeBuild.csproj -- "$@"
-rm -r bin/
-rm -r src/obj/
+mkdir -p Build/
+rm -r Build/MoreAnimals-*.zip
+mod_version=$(json5 modinfo.json | jq -r '.Version')
+zip -qr "Build/MoreAnimals-${mod_version}.zip" assets/ modicon.png modinfo.json
 rm "${VINTAGE_STORY_DEV}"/Mods/MoreAnimals-*.zip
-cp Build/Releases/MoreAnimals-*.zip "${VINTAGE_STORY_DEV}/Mods"
+cp Build/MoreAnimals-*.zip "${VINTAGE_STORY_DEV}/Mods"

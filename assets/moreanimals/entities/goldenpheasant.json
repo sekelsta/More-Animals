@@ -246,6 +246,7 @@
                         sitAnimation: "Sit",
                         requiresNearbyEntityCode: "moreanimals:goldenpheasant-cock",
                         requiresNearbyEntityRange: 18,
+                        nestTypes: [ "ground" ],
                         failBlockCode: "moreanimals:egg-goldenpheasant-1",
                         sound: "moreanimals:goldenpheasant/goldenpheasanthen1",
                         enabledByType: { "*-hen": true, "*": false },

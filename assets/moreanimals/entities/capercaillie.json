@@ -247,6 +247,7 @@
                         sitAnimation: "Sit",
                         requiresNearbyEntityCode: "moreanimals:capercaillie-cock",
                         requiresNearbyEntityRange: 18,
+                        nestTypes: [ "ground" ],
                         failBlockCode: "moreanimals:egg-capercaillie-1",
                         sound: "moreanimals:capercaillie/capercailliehen1",
                         enabledByType: { "*-hen": true, "*": false },
