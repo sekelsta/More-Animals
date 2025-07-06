@@ -1,6 +1,9 @@
 {
-    code: "capercaillie-chick",
+    code: "capercaillie",
     class: "EntityAgent",
+    variantgroups: [
+        { code: "agegender", states: [ "chick", "chick-male", "chick-female" ] }
+    ],
     hitboxSize: { x: 0.4, y: 0.25 },
     deadHitboxSize: { x: 0.5, y: 0.25 },
     eyeHeight: 0.15,
@@ -101,7 +104,11 @@
             { 
                 code: "grow",
                 hoursToGrow: 168,
-                adultEntityCodes: ["moreanimals:capercaillie-henpoult", "moreanimals:capercaillie-henpoult", "moreanimals:capercaillie-henpoult", "moreanimals:capercaillie-henpoult", "moreanimals:capercaillie-cockpoult"]
+                adultEntityCodesByType: {
+                    "*-male": [ "moreanimals:capercaillie-cockpoult" ],
+                    "*-female": [ "moreanimals:capercaillie-henpoult" ],
+                    "*": [ "moreanimals:capercaillie-henpoult", "moreanimals:capercaillie-henpoult", "moreanimals:capercaillie-henpoult", "moreanimals:capercaillie-henpoult", "moreanimals:capercaillie-cockpoult" ]
+                }
             },
             { code: "breathe" },
             {
