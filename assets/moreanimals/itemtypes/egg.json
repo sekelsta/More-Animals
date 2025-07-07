@@ -9,7 +9,12 @@
 		{ name: "GroundStorable", properties: { layout: 'Quadrants', collisionBox: { x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.125, z2: 1 } } }
 	],
     shape: { base: "game:item/food/egg" },
-	texture: { base: "game:item/food/egg/chicken" },
+	texturesByType: { 
+        "egg-pheasant-*": { "hay-egg": { base: "game:block/wood/henbox/hay-egg", blendedOverlays: [ { base: "item/egg/pheasant-color", blendMode: "Overlay" } ] }},
+        "egg-goldenpheasant-*": { "hay-egg": { base: "game:block/wood/henbox/hay-egg", blendedOverlays: [ { base: "item/egg/goldenpheasant-color", blendMode: "Overlay" } ] }},
+        "egg-capercaillie-*": { "hay-egg": { base: "game:block/wood/henbox/hay-egg", blendedOverlays: [ { base: "item/egg/capercaillie-speckles", blendMode: "Normal" } ] }},
+        "egg-wildturkey-*": { "hay-egg": { base: "game:block/wood/henbox/hay-egg", blendedOverlays: [ { base: "item/egg/turkey-speckles", blendMode: "Normal" } ] }},
+    },
 	creativeinventory: { "general": ["*"], "items": ["*"] },
 	attributes: {
 		"nutritionPropsWhenInMeal": { saturation: 280, foodcategory: "Protein" },

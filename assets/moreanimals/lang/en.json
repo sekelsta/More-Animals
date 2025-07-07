@@ -78,6 +78,7 @@
     "game:itemdesc-creature-wildturkey-chick": "Wild turkey hatchling",
     "game:item-dead-creature-wildturkey-chick": "Dead wild turkey hatchling",
     
+    "game:block-nestbox": "Nest box (old format, pick up and replace to update)",
     "block-nestbox-empty": "Nest box (Empty)",
     "block-nestbox-1egg": "Nest box (1 egg)",
     "block-nestbox-2eggs": "Nest box (2 eggs)",
