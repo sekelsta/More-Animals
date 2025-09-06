@@ -1,15 +1,15 @@
 [
 	{ 
-        file: "game:entities/animal/mammal/bear.json", 
+        file: "game:entities/animal/mammal/bear-adult.json", 
         op: "addeach", 
-        path: "/server/behaviors/9/aitasks/0/entityCodes/-", 
+        path: "/server/behaviors/9/aitasks/2/entityCodesByType/*/-", 
 		value: ["pheasant-*", "goldenpheasant-*", "capercaillie-*", "wildturkey-*" ], 
         side: "server" 
     },
 	{ 
-        file: "game:entities/animal/mammal/bear.json", 
+        file: "game:entities/animal/mammal/bear-adult.json", 
         op: "addeach", 
-        path: "/server/behaviors/9/aitasks/3/entityCodesByType/*/-", 
+        path: "/server/behaviors/9/aitasks/3/entityCodes/-", 
 		value: ["pheasant-*", "goldenpheasant-*", "capercaillie-*", "wildturkey-*" ], 
         side: "server" 
     },
