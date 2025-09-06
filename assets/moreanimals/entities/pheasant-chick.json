@@ -14,9 +14,7 @@
             foodCategories: ["Grain"],
             foodTags: ["fruitmash"]
         },
-        basketCatchable: true,
-        trapChance: 0.5,
-        trapDestroyChance: 0.01,
+        trappable: { "small": { trapChance: 0.75, trapDestroyChance: 0.0 } },
         "handbook": {
             "groupcode": "creaturegroup-pheasant"
         }
@@ -144,6 +142,21 @@
                         maxDistance: 2,
                         searchRange: 12,
                         animation: "Run"
+                    },
+                    {
+                        code: "seekfoodandeat",
+                        priority: 1.25,
+                        seekingRange: 18,
+                        eatSound: "game:player/eat",
+                        eatTime: 1.5,
+                        eatAnimation: "Eat",
+                        eatLooseItems: true,
+                        eatItemCategories: ["Grain", "Vegetable", "Fruit"],
+                        movespeed: 0.003,
+                        animation: "Walk",
+                        mincooldownHours: 1,
+                        maxcooldownHours: 4,
+                        doConsumePortion: false,
                     },
                     {
                         code: "idle",

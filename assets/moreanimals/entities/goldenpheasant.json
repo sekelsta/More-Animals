@@ -19,9 +19,7 @@
             foodCategories: ["Grain"],
             foodTags: ["fruitmash"]
         },
-        basketCatchable: true,
-        trapChance: 0.5,
-        trapDestroyChance: 0.01,
+        trappable: { "small": { trapChance: 0.5, trapDestroyChance: 0.01 } },
         eggTypes: [ { type: "item", code: "moreanimals:egg-goldenpheasant-raw" } ],
         handbook: {
             groupcode: "creaturegroup-goldenpheasant"
@@ -154,7 +152,7 @@
                 multiplyCooldownDaysMin: 0,
                 multiplyCooldownDaysMax: 4,
                 portionsEatenForMultiply: 4,
-                enabledByType: { "*-hen": true, "*": false}
+                enabledByType: { "*-hen": true, "*": false},
             },
             { code: "breathe" },
             { 
