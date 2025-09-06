@@ -1,0 +1,10 @@
+{
+    "recipeGroup": 2,
+    "ingredientPattern": "P",
+    "ingredients": {
+        "P": { "type": "item", "code": "*-rotten" }
+    },
+    "width": 1,
+    "height": 1,
+    "output": { "type": "item", "code": "game:rot", "quantity": 1 }
+}
