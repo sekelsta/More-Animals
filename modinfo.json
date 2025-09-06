@@ -2,7 +2,7 @@
   "Type": "code",
   "TextureSize": 32,
   "Name": "More Animals",
-  "Version": "1.6.0",
+  "Version": "1.6.1",
   "Description": "Adds new animals for you to discover, exploit and nurture.",
   "Website": "",
   "ModID": "moreanimals",
@@ -19,7 +19,8 @@
     "Yanazake",
     "Jay",
     "AzuliBluespots",
-    "Mokradin"
+    "Mokradin",
+    "animatiV"
   ],
   "Side": "Universal",
   "RequiredOnClient": true,
