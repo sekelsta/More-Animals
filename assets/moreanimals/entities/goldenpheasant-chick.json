@@ -1,6 +1,7 @@
 {
     code: "goldenpheasant",
     class: "EntityAgent",
+    tags: ["animal", "huntable", "habitat-land"],
     variantgroups: [
         { code: "agegender", states: [ "chick", "chick-male", "chick-female" ] }
     ],

@@ -1,6 +1,7 @@
 {
     code: "pheasant",
     class: "EntityAgent",
+    tags: ["animal", "huntable", "adult", "habitat-land"],
     variantgroups: [
         { code: "agegender", states: [ "cock", "cockpoult", "hen", "henpoult" ] }
     ],
