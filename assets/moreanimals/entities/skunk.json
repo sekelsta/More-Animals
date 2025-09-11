@@ -1,6 +1,7 @@
 {
     code: "skunk",
     class: "EntityAgent",
+    tags: ["animal", "huntable", "adult", "TODO", "habitat-land"],
     variantgroups: [
         { code: "species", states: ["striped", "spotted", "hooded"] },
         { code: "gender", states: ["male", "female"] },
