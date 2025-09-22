@@ -7,6 +7,14 @@
         side: "server",
         dependsOn: [ { modid: "butchering" } ]
     },
+    {
+        file: "moreanimals:recipes/grid/butchering/rot.json",
+        op: "add",
+        path: "/enabled",
+        value: true,
+        side: "server",
+        dependsOn: [ { modid: "butchering" } ]
+    },
 
 
 
