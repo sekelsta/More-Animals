@@ -22,8 +22,8 @@
     drops: [],
     attributes: {
         creatureDiet: {
-            foodCategories: ["Grain"],
-            foodTags: ["fruitmash"]
+            foodCategories: [ "Grain", "Fruit" ],
+            foodTags: [ "grain", "fruit", "fruitmash" ]
         },
         trappable: { "small": { trapChance: 0.5, trapDestroyChance: 0.01 } },
         eggTypes: [ { type: "item", code: "moreanimals:egg-wildturkey-raw" } ],
