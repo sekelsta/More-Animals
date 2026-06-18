@@ -26,6 +26,6 @@
   "RequiredOnClient": true,
   "RequiredOnServer": true,
   "Dependencies": {
-    "game": "1.21.0"
+    "game": "1.22.0"
   }
 }

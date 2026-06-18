@@ -2,7 +2,7 @@
 	{ 
         file: "game:entities/animal/mammal/bear-adult.json", 
         op: "addeach", 
-        path: "/server/behaviors/9/aitasks/2/entityCodesByType/*/-", 
+        path: "/server/behaviors/9/aitasks/2/entityCodes/-", 
 		value: ["pheasant-*", "goldenpheasant-*", "capercaillie-*", "wildturkey-*" ], 
         side: "server" 
     },
