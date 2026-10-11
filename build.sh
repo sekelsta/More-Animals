@@ -17,6 +17,6 @@ if [[ -n $null_textured_shapes ]]; then
     echo -e "${null_textured_shapes}${NC}"
 fi
 
-zip -r MoreAnimals-1.7.0.zip assets/ modicon.png modinfo.json
+zip -r MoreAnimals-1.7.1.zip assets/ modicon.png modinfo.json
 rm "${VINTAGE_STORY_DATA}"/Mods/MoreAnimals*.zip
 mv MoreAnimals*.zip "${VINTAGE_STORY_DATA}/Mods"
